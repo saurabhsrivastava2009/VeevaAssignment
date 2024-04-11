@@ -14,6 +14,7 @@ public class FileUtils {
 
     /**
      * Method to create a directory/folder
+     *
      * @param folderPath -the path at which you want to create the foler
      */
     public static void createFolder(String folderPath) {
@@ -25,8 +26,9 @@ public class FileUtils {
 
     /**
      * Method to write to file
+     *
      * @param filePath - the file path
-     * @param content - the contents of the file
+     * @param content  - the contents of the file
      * @throws IOException - handling IO related exceptions
      */
     public static void writeToFile(String filePath, String content) throws IOException {

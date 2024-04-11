@@ -9,9 +9,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class NBABullsHomePage extends BasePage{
+/**
+ * Class for NBA Bulls page
+ *
+ * @author Saurabh Srivastava
+ * @since 11-04-2024
+ */
+public class NBABullsHomePage extends BasePage {
 
-    private String URL = BasePage.URL +"bulls";
+    private String URL = BasePage.URL + "bulls";
     private By footerListBy = By.cssSelector("[data-testid=\"footer-list-item\"]");
     private By linkBy = By.cssSelector(".text-sm");
 
@@ -23,27 +29,30 @@ public class NBABullsHomePage extends BasePage{
 
     /**
      * Method to get all footer web elements
+     *
      * @return list of all footer elements
      */
-    private List<WebElement> getAllFooterElements(){
+    private List<WebElement> getAllFooterElements() {
         return pageWebElements.getWebElements(footerListBy);
     }
 
     /**
      * Method to get footer text
+     *
      * @return footer text
      */
-    private String getFooterName(WebElement element){
+    private String getFooterName(WebElement element) {
         return pageWebElements.getText(element);
     }
 
     /**
      * Method to get footer link
+     *
      * @return footer link
      */
-    private String getFooterLink(WebElement element){
+    private String getFooterLink(WebElement element) {
         WebElement webElement = pageWebElements.getWebElement(element, linkBy);
-        return pageWebElements.getAttributeValue(webElement,"href");
+        return pageWebElements.getAttributeValue(webElement, "href");
     }
 
     /**
@@ -51,10 +60,10 @@ public class NBABullsHomePage extends BasePage{
      *
      * @param fileName - the filename you want to create
      */
-    public void saveAllFooterLinks(String fileName){
+    public void saveAllFooterLinks(String fileName) {
         String fileFolderPath = "product_details";
         FileUtils.createFolder(fileFolderPath);
-        String filePath = fileFolderPath + File.separator+ fileName;
+        String filePath = fileFolderPath + File.separator + fileName;
 
         StringBuilder contentBuilder = new StringBuilder();
         contentBuilder.append("Name,Link,isDuplicate\n");
@@ -68,12 +77,11 @@ public class NBABullsHomePage extends BasePage{
 
         try {
             FileUtils.writeToFile(filePath, contentBuilder.toString());
-            LOGGER.info("Data has been written to "+fileName+" in the product_details folder.");
+            LOGGER.info("Data has been written to " + fileName + " in the product_details folder.");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             BasicWebDriver.tearDown();
         }
     }
-
 }

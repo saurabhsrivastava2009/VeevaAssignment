@@ -12,11 +12,21 @@ import org.apache.log4j.PropertyConfigurator;
 public class CommonFrameworkLogger {
     private static Logger LOGGER;
 
+    /**
+     * Method to initialise logger for respective class
+     *
+     * @param clazz - the class for which logger is initialised
+     */
     public CommonFrameworkLogger(Class clazz) {
         LOGGER = Logger.getLogger(clazz.getName());
         PropertyConfigurator.configure("src/main/resources/log4j.properties");
     }
 
+    /**
+     * Method to get the {@link Logger} object
+     *
+     * @return {@link Logger} object
+     */
     public Logger getLOGGER() {
         return LOGGER;
     }

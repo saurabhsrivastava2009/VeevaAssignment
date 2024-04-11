@@ -9,12 +9,12 @@ public class NBABullsPageStepDefination {
     private NBABullsHomePage nbaBullsHomePage = new NBABullsHomePage();
 
     @Given("^the user navigates to NBA Bulls Home Page$")
-    public void navigateToThisPage(){
+    public void navigateToThisPage() {
         nbaBullsHomePage.navigateToThisPage();
     }
 
     @And("^the user saves the footer links in file:(.+)$")
-    public void saveAllProductDetails(String fileName){
+    public void saveAllProductDetails(String fileName) {
         nbaBullsHomePage.saveAllFooterLinks(fileName);
     }
 }

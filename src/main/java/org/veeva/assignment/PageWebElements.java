@@ -1,18 +1,26 @@
 package org.veeva.assignment;
 
-import org.testng.Assert;
-import org.veeva.assignment.utilities.CommonFrameworkLogger;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.veeva.assignment.utilities.CommonFrameworkLogger;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.Set;
 
+/**
+ * Central class to handle actions performed on page
+ *
+ * @author Saurabh Srivastava
+ * @since 09-04-2024
+ */
 public class PageWebElements {
 
     protected WebDriver driver;

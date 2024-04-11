@@ -12,7 +12,7 @@ public class NBASixersHomePageStepDefination {
     private List<String> allSlideTitles = new ArrayList<>();
 
     @Given("^the user navigates to NBA Sixers Home Page$")
-    public void navigateToThisPage(){
+    public void navigateToThisPage() {
         nbaSixersHomePage.navigateToThisPage();
     }
 
@@ -22,21 +22,19 @@ public class NBASixersHomePageStepDefination {
     }
 
     @Then("^the user verifies the slide titles:$")
-    public void verifySlideTitles(List<String> titles){
-        if(allSlideTitles.size()!=titles.size()){
-            nbaSixersHomePage.verify(allSlideTitles.size(),titles.size(),"Slides count is not as expected");
-        }
-        else {
-            for(int i=0;i<allSlideTitles.size();i++){
-                nbaSixersHomePage.verify(allSlideTitles.get(i),titles.get(i),"Titles are matching:"+titles.get(i));
+    public void verifySlideTitles(List<String> titles) {
+        if (allSlideTitles.size() != titles.size()) {
+            nbaSixersHomePage.verify(allSlideTitles.size(), titles.size(), "Slides count is not as expected");
+        } else {
+            for (int i = 0; i < allSlideTitles.size(); i++) {
+                nbaSixersHomePage.verify(allSlideTitles.get(i), titles.get(i), "Titles are matching:" + titles.get(i));
             }
         }
     }
 
     @Then("^the user verifies the slides duration as approx of (\\d+) seconds$")
-    public void verifySlideDuration(double expectedDuration){
+    public void verifySlideDuration(double expectedDuration) {
         double actualDuration = nbaSixersHomePage.getAndcalculateSlideDuration();
-        nbaSixersHomePage.verify(actualDuration,expectedDuration,"Duration is as expected");
+        nbaSixersHomePage.verify(actualDuration, expectedDuration, "Duration is as expected");
     }
-
 }
