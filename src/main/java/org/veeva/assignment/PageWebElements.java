@@ -30,7 +30,7 @@ public class PageWebElements {
 
     public PageWebElements() {
         try {
-            this.driver = BasicWebDriver.driver;
+            this.driver = BasicWebDriver.getWebDriver();
             js = (JavascriptExecutor) driver;
         } catch (Exception e) {
             e.printStackTrace();
