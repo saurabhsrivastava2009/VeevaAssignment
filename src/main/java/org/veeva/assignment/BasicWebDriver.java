@@ -9,6 +9,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
 import org.veeva.assignment.utilities.CommonFrameworkLogger;
 
+import java.util.Objects;
+
 /**
  * Base class for driver management
  *
