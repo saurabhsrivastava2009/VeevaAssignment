@@ -118,11 +118,21 @@ Code Reusability: Page objects can be reused across multiple tests, reducing dup
 ```
 
 ## How to Run:
+### IDE
 You can choose any [Feature](https://github.com/saurabhsrivastava2009/VeevaAssignment/tree/master/src/test/features) or Scenario to run the code, just make sure to add the arguments or VM options as
 ```
 -DBrowser=chrome
 -Dtimeout=30
+-DDisHeadless=true
 ```
+`isHeadless` could be true or false based on requirement.
+
+### Command Line
+In order to run it from the command line, we can use the following maven command
+```
+mvn clean test -Dbrowser=chrome -Dtimeout=30 -DisHeadless=true
+```
+For running in a CI Pipeline like GitHub Action Workflow or Jenkins, use `isHeadless = true`
 
 ## Diagram
 ![Diagram](https://github.com/saurabhsrivastava2009/VeevaAssignment/assets/38876539/52e6ef91-dc64-4fb1-89ea-30cf61cd42ed)
