@@ -112,7 +112,7 @@ public class MensShoppingPage extends NBAWarriorsHomePage {
     public void saveAllProductDetails(String fileName) {
         String fileFolderPath = "product_details";
         FileUtils.createFolder(fileFolderPath);
-        String filePath = fileFolderPath + File.separator + fileName;
+        String filePath = fileFolderPath + File.separator + fileName +"_"+ DateUtils.getDateInThisPattern("dd-mm-yyyy h-m-s-ms")+".txt";
 
         StringBuilder contentBuilder = new StringBuilder();
         contentBuilder.append("Title\tPrice\tTop Seller Message\n");
