@@ -34,4 +34,5 @@ jobs:
       run: |
         mvn clean test \
         -Dbrowser=chrome \
-        -Dtimeout=30
+        -Dtimeout=30 \
+        -DisHeadless=true
