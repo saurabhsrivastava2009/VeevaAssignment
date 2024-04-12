@@ -12,7 +12,7 @@ public class BaseStepDefination {
     @Before
     public void setup(Scenario scenario) {
         LOGGER.info("Setting up Webdriver");
-        BasicWebDriver.driver = BasicWebDriver.getWebDriver();
+        BasicWebDriver.getWebDriver();
         LOGGER.info("Starting Scenario:" + scenario.getName());
     }
 
