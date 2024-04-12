@@ -3,6 +3,7 @@ package org.veeva.assignment;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -62,6 +63,13 @@ public class BasicWebDriver {
         String message = "Browser Driver";
         if (BasicWebDriver.browser.equalsIgnoreCase("chrome")) {
             LOGGER.info(message + ":chrome driver");
+            ChromeOptions options = new ChromeOptions();
+            if(System.getProperty("isHeadless")!=null){
+                if(System.getProperty("isHeadless").equals("true")){
+                    options.addArguments("--headless=new");
+                    return new ChromeDriver(options);
+                }
+            }
             return new ChromeDriver();
         } else if (BasicWebDriver.browser.equalsIgnoreCase("firefox")) {
             LOGGER.info(message + ":firefox driver");
