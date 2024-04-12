@@ -1,3 +1,6 @@
+### Build Result
+[![Java CI with Maven and Cucumber](https://github.com/saurabhsrivastava2009/VeevaAssignment/actions/workflows/maven.yml/badge.svg)](https://github.com/saurabhsrivastava2009/VeevaAssignment/actions/workflows/maven.yml)
+
 # Veeva Assignment
 ## Cucumber Page Object Model (POM) Framework
 The Cucumber Page Object Model (POM) framework is designed to enhance test automation by promoting reusability, maintainability, and organization. It leverages the Page Object Design Pattern to create a clear separation between test code and page-specific elements.
