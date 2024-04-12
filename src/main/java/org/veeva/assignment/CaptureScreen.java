@@ -27,7 +27,7 @@ public class CaptureScreen {
     public static void takeScreenSnapShot(){
         String currentMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         String imageName = "Screenshot_"+currentMethodName+"_"+ DateUtils.getDateInThisPattern("dd-mm-yyyy h-m-s-ms") +".png";
-        TakesScreenshot screenshot = (TakesScreenshot) BasicWebDriver.driver;
+        TakesScreenshot screenshot = (TakesScreenshot) BasicWebDriver.getWebDriver();
         File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
         File destinationFile = new File("./screenshots/"+imageName+".png");
         try {

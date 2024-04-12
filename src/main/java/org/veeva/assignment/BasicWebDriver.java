@@ -18,7 +18,7 @@ import org.veeva.assignment.utilities.CommonFrameworkLogger;
  */
 public class BasicWebDriver {
 
-    public static WebDriver driver;
+    private static final ThreadLocal<WebDriver> driverThreadLocal = ThreadLocal.withInitial(()->null);
     private static final String browser = System.getProperty("browser");
     private static final Logger LOGGER = new CommonFrameworkLogger(BasicWebDriver.class).getLOGGER();
 
@@ -28,15 +28,16 @@ public class BasicWebDriver {
      * @return driver object
      */
     public static WebDriver getWebDriver() {
-        if (driver == null) {
-            driver = getNewWebDriverInstance();
-        } else if (driver instanceof RemoteWebDriver) {
-            SessionId sessionId = ((RemoteWebDriver) driver).getSessionId();
+        if (Objects.isNull(driverThreadLocal.get())) {
+            driverThreadLocal.set(getNewWebDriverInstance());
+        } else if (driverThreadLocal.get() instanceof RemoteWebDriver) {
+            SessionId sessionId = ((RemoteWebDriver) driverThreadLocal.get()).getSessionId();
             if (sessionId == null) {
-                driver = getNewWebDriverInstance();
+                driverThreadLocal.set(getNewWebDriverInstance());
             }
         }
-        return driver;
+
+        return driverThreadLocal.get();
     }
 
     /**
@@ -45,7 +46,7 @@ public class BasicWebDriver {
      * @return webdriver
      */
     private static WebDriver getNewWebDriverInstance() {
-        driver = getBrowserDriver();
+        WebDriver driver = getBrowserDriver();
         driver.manage().window().maximize();
         return driver;
     }
@@ -75,6 +76,10 @@ public class BasicWebDriver {
      * Method to tear down web driver
      */
     public static void tearDown() {
-        driver.quit();
+        WebDriver driver = driverThreadLocal.get();
+        if(driver!=null){
+            driver.quit();
+            driverThreadLocal.remove();
+        }
     }
 }
