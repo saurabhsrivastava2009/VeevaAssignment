@@ -63,7 +63,7 @@ public class NBABullsHomePage extends BasePage {
     public void saveAllFooterLinks(String fileName) {
         String fileFolderPath = "product_details";
         FileUtils.createFolder(fileFolderPath);
-        String filePath = fileFolderPath + File.separator + fileName +"_"+ DateUtils.getDateInThisPattern("dd-mm-yyyy h-m-s-ms");
+        String filePath = fileFolderPath + File.separator + fileName +"_"+ DateUtils.getDateInThisPattern("dd-mm-yyyy h-m-s-ms")+".csv";
 
         StringBuilder contentBuilder = new StringBuilder();
         contentBuilder.append("Name,Link,isDuplicate\n");
