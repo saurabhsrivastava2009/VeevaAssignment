@@ -23,9 +23,9 @@ public class NewsAndFeaturePage extends NBAWarriorsHomePage {
     @Override
     public NewsAndFeaturePage navigateToThisPage() {
         pageWebElements.navigateUsingURL(URL);
+        pageWebElements.waitForElementVisible(pageHeaderBy,true);
         return this;
     }
-
     /**
      * Method to scroll to the page section
      *

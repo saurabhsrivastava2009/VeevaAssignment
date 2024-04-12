@@ -54,7 +54,7 @@ public class MensShoppingPage extends NBAWarriorsHomePage {
      * @return - {@link MensShoppingPage} for chaining
      */
     public MensShoppingPage selectDepartment(String departmentValue) {
-        pageWebElements.click(departmentRadiosByMap.get(departmentValue), jacketsBreadcrumbBy);
+        pageWebElements.click(pageWebElements.getWebElement(departmentRadiosByMap.get(departmentValue)));
         return this;
     }
 
