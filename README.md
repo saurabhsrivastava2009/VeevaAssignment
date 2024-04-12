@@ -135,7 +135,9 @@ mvn clean test -Dbrowser=chrome -Dtimeout=30 -DisHeadless=true
 For running in a CI Pipeline like GitHub Action Workflow or Jenkins, use `isHeadless = true`
 
 ## Diagram
-![Diagram](https://github.com/saurabhsrivastava2009/VeevaAssignment/assets/38876539/52e6ef91-dc64-4fb1-89ea-30cf61cd42ed)
+
+![image](https://github.com/saurabhsrivastava2009/VeevaAssignment/assets/38876539/c72213cd-0694-4230-8988-a47ba604f350)
+
 
 ## Cucumber Report
 It can be found at [Cucumber Report Page](https://reports.cucumber.io/report-collections/5eceaa3a-2710-4236-ac82-376e8585166c)
