@@ -80,6 +80,7 @@ public class BasicWebDriver {
     public static void tearDown() {
         WebDriver driver = driverThreadLocal.get();
         if(driver!=null){
+            driver.close();
             driver.quit();
             driverThreadLocal.remove();
         }

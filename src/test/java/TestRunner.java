@@ -2,12 +2,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import org.veeva.assignment.BasicWebDriver;
 
 @CucumberOptions(
         features = {"src/test/features"},
         glue = {"stepDefination"},
-        tags = ""
+        tags = "@Smoke"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

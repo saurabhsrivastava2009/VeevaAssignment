@@ -1,3 +1,4 @@
+@Sanity
 Feature: NBA Warriors Tests
 
   Scenario: Save product details in Text file

@@ -34,6 +34,7 @@ public class NBABullsHomePage extends BasePage {
      * @return list of all footer elements
      */
     private List<WebElement> getAllFooterElements() {
+        pageWebElements.waitForElementVisible(footerListBy,true);
         return pageWebElements.getWebElements(footerListBy);
     }
 
