@@ -33,7 +33,7 @@ Code Reusability: Page objects can be reused across multiple tests, reducing dup
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.19.1</selenium.version>
         <testng.version>7.10.0</testng.version>
-        <webdrivermanager.version>5.8.0</webdrivermanager.version>
+        <!--<webdrivermanager.version>5.8.0</webdrivermanager.version>-->
         <cucumberjava.version>7.16.1</cucumberjava.version>
         <cucumbertestng.version>7.16.1</cucumbertestng.version>
         <log4j.version>1.2.16</log4j.version>
@@ -59,11 +59,18 @@ Code Reusability: Page objects can be reused across multiple tests, reducing dup
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Tests.java</include>
-                    </includes>
-                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>io.cucumber</groupId>
+                        <artifactId>cucumber-java</artifactId>
+                        <version>${cucumberjava.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.cucumber</groupId>
+                        <artifactId>cucumber-testng</artifactId>
+                        <version>${cucumbertestng.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -79,11 +86,11 @@ Code Reusability: Page objects can be reused across multiple tests, reducing dup
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
